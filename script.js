@@ -4,5 +4,9 @@ var cat = {
     name: 'Fluffy',
     color: 'white'
 };
+cat.age = 3;
+cat.speak = function () {
+    display("Meeooow");
+};
 
-display(cat.name);
+cat.speak();
