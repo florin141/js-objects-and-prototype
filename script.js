@@ -1,12 +1,11 @@
 'use strict';
 
-var cat = {
-    name: 'Fluffy',
-    color: 'white'
-};
-cat.age = 3;
-cat.speak = function () {
-    display("Meeooow");
-};
+// constructor functions
+function Cat(name, color) {
+    this.name = name;
+    this.color = color;
+}
 
-cat.speak();
+var cat = new Cat('Fluffy', 'White');
+
+display(cat);
