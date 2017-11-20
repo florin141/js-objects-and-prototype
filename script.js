@@ -4,6 +4,6 @@ var cat = {
     name: 'Fluffy',
     color: 'White'
 };
-cat['Eye Color'] = 'Green';
 
-display(cat['Eye Color']);
+
+display(Object.getOwnPropertyDescriptor(cat, 'name'));
