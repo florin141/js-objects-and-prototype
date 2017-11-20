@@ -1,28 +1,29 @@
 'use strict';
 
-function Animal(voice) {
-    this.voice = voice || 'grunt';
+class Animal {
+    constructor(voice) {
+        this.voice = voice || 'grunt';
+    }
+
+    speak() {
+        display(this.voice);
+    }
 }
 
-Animal.prototype.speak = function () {
-    display(this.voice);
-};
 
-function Cat(name, color) {
-    Animal.call(this, 'Meow');                      /// creating the prototype chain
-    this.name = name;
-    this.color = color;
+class Cat extends Animal {
+    constructor(name, color) {
+        super('Meow');
+        this.name = name;
+        this.color = color;
+    }
 }
-Cat.prototype = Object.create(Animal.prototype);    /// creating the prototype chain
-Cat.prototype.constructor = Cat;                    /// creating the prototype chain
 
 var fluffy = new Cat('Fluffy', 'White');
 
-fluffy.speak();
+// fluffy.speak();
 
-display(fluffy);
-display(fluffy instanceof Cat);
-display(fluffy instanceof Animal);
+display(fluffy.constructor);
 
-display(fluffy.__proto__);
-display(fluffy.__proto__.__proto__);
+display(Object.keys(fluffy.__proto__.__proto__));               /// members of classes are note
+display(fluffy.__proto__.__proto__.hasOwnProperty('speak'));    /// enumerable by default
