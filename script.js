@@ -8,7 +8,12 @@ var cat = {
     color: 'White'
 };
 
-Object.defineProperty(cat, 'name', {writable: false});
-Object.freeze(cat.name);
-cat.name.first = 'Scratchy';
-display(cat.name);
+Object.defineProperty(cat, 'name', {enumerable: false});
+
+for (var prop in cat) {
+    display(prop + ': ' + cat[prop]);
+}
+
+display(Object.keys(cat));
+
+display(JSON.stringify(cat));
