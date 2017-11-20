@@ -1,17 +1,9 @@
 'use strict';
 
-class Cat {
-    constructor(name, color) {
-        this.name = name;
-        this.color = color;
-    }
+var cat = {
+    name: 'Fluffy',
+    color: 'White'
+};
+cat['Eye Color'] = 'Green';
 
-    speak() {
-        display('Meeooow');
-    }
-}
-
-var cat = new Cat('Fluffy', 'White');
-
-display(cat);
-cat.speak();
+display(cat['Eye Color']);
