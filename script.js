@@ -8,10 +8,19 @@ var cat = {
     color: 'White'
 };
 
-// Object.defineProperty(cat, 'name', {configurable: false});
-// Object.defineProperty(cat, 'name', {enumerable: false});    // error
-// Object.defineProperty(cat, 'name', {configurable: true});    // error
-// delete cat.name;                                             // error
-// display(cat.name);
+// Create a fullName property
+Object.defineProperty(cat, 'fullName', {
+    get: function () {
+        return this.name.first + ' ' + this.name.last;
+    },
+    set: function (value) {
+        var nameParts = value.split(' ');
+        this.name.first = nameParts[0];
+        this.name.last = nameParts[1];
+    }
+});
 
-// Object.defineProperty(cat, 'name', {writable: false});    // no error
+cat.fullName = 'Muffin Top';
+display(cat.fullName);
+display(cat.name.first);
+display(cat.name.last);
