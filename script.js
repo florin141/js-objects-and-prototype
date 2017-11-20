@@ -8,12 +8,10 @@ var cat = {
     color: 'White'
 };
 
-Object.defineProperty(cat, 'name', {enumerable: false});
+// Object.defineProperty(cat, 'name', {configurable: false});
+// Object.defineProperty(cat, 'name', {enumerable: false});    // error
+// Object.defineProperty(cat, 'name', {configurable: true});    // error
+// delete cat.name;                                             // error
+// display(cat.name);
 
-for (var prop in cat) {
-    display(prop + ': ' + cat[prop]);
-}
-
-display(Object.keys(cat));
-
-display(JSON.stringify(cat));
+// Object.defineProperty(cat, 'name', {writable: false});    // no error
