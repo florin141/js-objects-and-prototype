@@ -17,16 +17,20 @@ function Cat(name, color) {
     this.color = color;
 }
 
-display(Cat.prototype);
+Cat.prototype.age = 4;
 
 var fluffy = new Cat('Fluffy', 'White');
-
-Cat.prototype.age = 3;
-
-display(fluffy.__proto__);
-
 var muffin = new Cat('Muffin', 'Brown');
 
-display(muffin.__proto__);
+fluffy.age = 5;     // we did not change the prototype age property
+                    // we added a new property to the fluffy object
 
-display(Cat.prototype === fluffy.__proto__);
+display(fluffy.age);
+display(fluffy.__proto__.age);
+display(muffin.age);
+
+display(Object.keys(fluffy));
+display(Object.keys(muffin));
+
+display(fluffy.hasOwnProperty('age'));
+display(muffin.hasOwnProperty('age'));
