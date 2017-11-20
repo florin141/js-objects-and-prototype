@@ -22,15 +22,8 @@ Cat.prototype.age = 4;
 var fluffy = new Cat('Fluffy', 'White');
 var muffin = new Cat('Muffin', 'Brown');
 
-fluffy.age = 5;     // we did not change the prototype age property
-                    // we added a new property to the fluffy object
+Cat.prototype = { age: 5 };
 
 display(fluffy.age);
-display(fluffy.__proto__.age);
 display(muffin.age);
-
-display(Object.keys(fluffy));
-display(Object.keys(muffin));
-
-display(fluffy.hasOwnProperty('age'));
-display(muffin.hasOwnProperty('age'));
+display(Cat.prototype.age);
