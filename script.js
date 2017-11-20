@@ -20,10 +20,7 @@ function Cat(name, color) {
 Cat.prototype.age = 4;
 
 var fluffy = new Cat('Fluffy', 'White');
-var muffin = new Cat('Muffin', 'Brown');
 
-Cat.prototype = { age: 5 };
-
-display(fluffy.age);
-display(muffin.age);
-display(Cat.prototype.age);
+display(fluffy.__proto__);
+display(fluffy.__proto__.__proto__);
+display(fluffy.__proto__.__proto__.__proto__);
