@@ -1,26 +1,28 @@
 'use strict';
 
-var cat = {
-    name: {
-        first: 'Fluffy',
-        last: 'LaBeouf'
-    },
-    color: 'White'
-};
+var arr = ['red', 'blue', 'green'];
 
-// Create a fullName property
-Object.defineProperty(cat, 'fullName', {
+// // New array does not have the last property
+// Object.defineProperty(arr, 'last', {
+//     get: function () {
+//         return this[this.length-1];
+//     }
+// });
+//
+// var last = arr.last;
+// display(last);
+//
+// var arr2 = ['one', 'two', 'tree'];
+// display(arr2.last);     // returns undefined
+
+// New array does have the last property
+Object.defineProperty(Array.prototype, 'last', {
     get: function () {
-        return this.name.first + ' ' + this.name.last;
-    },
-    set: function (value) {
-        var nameParts = value.split(' ');
-        this.name.first = nameParts[0];
-        this.name.last = nameParts[1];
+        return this[this.length-1];
     }
 });
 
-cat.fullName = 'Muffin Top';
-display(cat.fullName);
-display(cat.name.first);
-display(cat.name.last);
+display(arr.last);
+
+var arr2 = ['one', 'two', 'tree'];
+display(arr2.last);     // returns tree
