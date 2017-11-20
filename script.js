@@ -1,28 +1,32 @@
 'use strict';
 
-var arr = ['red', 'blue', 'green'];
-
-// // New array does not have the last property
-// Object.defineProperty(arr, 'last', {
-//     get: function () {
-//         return this[this.length-1];
-//     }
-// });
+// var foo = function () {
 //
-// var last = arr.last;
-// display(last);
+// };
+// display(foo.prototype); // empty object
 //
-// var arr2 = ['one', 'two', 'tree'];
-// display(arr2.last);     // returns undefined
+// var cat = {
+//     name: 'Fluffy'
+// };
+// display(cat.prototype); // undefined
+// display(cat.__proto__); // empty object
+//
 
-// New array does have the last property
-Object.defineProperty(Array.prototype, 'last', {
-    get: function () {
-        return this[this.length-1];
-    }
-});
+function Cat(name, color) {
+    this.name = name;
+    this.color = color;
+}
 
-display(arr.last);
+display(Cat.prototype);
 
-var arr2 = ['one', 'two', 'tree'];
-display(arr2.last);     // returns tree
+var fluffy = new Cat('Fluffy', 'White');
+
+Cat.prototype.age = 3;
+
+display(fluffy.__proto__);
+
+var muffin = new Cat('Muffin', 'Brown');
+
+display(muffin.__proto__);
+
+display(Cat.prototype === fluffy.__proto__);
